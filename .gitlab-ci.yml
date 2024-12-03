@@ -1,0 +1,20 @@
+image: node:latest
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+  - qa
+
+testing:
+  stage: qa
+  script:
+    - npm install
+    - npm run tests
+  artifacts:
+    when: always
+    paths:
+      - report/
+    expire_in: 1 day
+
