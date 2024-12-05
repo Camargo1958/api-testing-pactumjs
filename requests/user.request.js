@@ -50,4 +50,16 @@ async function loginUsuario(overrides, removes) {
         });
 }
 
-module.exports = { usuarioRandom, cadastrarUsuario, alterarUsuario, excluirUsuario, loginUsuario }
+async function listarUsuarioPorId(id) {
+    return await spec()
+        .get(`${baseUrl}/usuarios/${id}`)
+        .withHeaders('Content-Type', 'application/json')
+}
+
+async function listarTodosUsuarios() {
+    return await spec()
+        .get(`${baseUrl}/usuarios`)
+        .withHeaders('Content-Type', 'application/json')
+}
+
+module.exports = { usuarioRandom, cadastrarUsuario, alterarUsuario, excluirUsuario, loginUsuario, listarUsuarioPorId, listarTodosUsuarios }

@@ -2,3 +2,5 @@ node_modules
 report
 *.txt
 package-lock*
+yarn.lock
+allure-results
